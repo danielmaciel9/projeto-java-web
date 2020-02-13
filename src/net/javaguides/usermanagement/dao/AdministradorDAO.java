@@ -9,13 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.javaguides.usermanagement.model.Administrador;
-/**
- * AbstractDAO.java This DAO class provides CRUD database operations for the
- * table users in the database.
- * 
- * @author Ramesh Fadatare
- *
- */
+
 public class AdministradorDAO {
 	private String jdbcURL = "jdbc:mysql://localhost:3306/escola?useSSL=false";
 	private String jdbcUsername = "root";
