@@ -1,11 +1,11 @@
 package net.javaguides.usermanagement.model;
 
-public class Alunos {
+public class Aluno {
 	protected int id;
-	protected char cpf;
+	protected String cpf;
 	protected String nome;
 	protected String email;
-	protected char celular;
+	protected String celular;
 	protected String login;
 	protected String senha;
 	protected String endereco;
@@ -15,7 +15,24 @@ public class Alunos {
 	protected String comentario;
 	protected Boolean aprovado;
 	
-	public Alunos(int id, char cpf, String nome, String email, char celular, String login, String senha,
+	public Aluno(String cpf, String nome, String email, String celular, String login, String senha,
+			String endereco, String cidade, String bairro, String cep, String comentario, Boolean aprovado) {
+		super();
+		this.cpf = cpf;
+		this.nome = nome;
+		this.email = email;
+		this.celular = celular;
+		this.login = login;
+		this.senha = senha;
+		this.endereco = endereco;
+		this.cidade = cidade;
+		this.bairro = bairro;
+		this.cep = cep;
+		this.comentario = comentario;
+		this.aprovado = aprovado;
+	}
+	
+	public Aluno(int id, String cpf, String nome, String email, String celular, String login, String senha,
 			String endereco, String cidade, String bairro, String cep, String comentario, Boolean aprovado) {
 		super();
 		this.id = id;
@@ -39,10 +56,10 @@ public class Alunos {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public char getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
-	public void setCpf(char cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 	public String getNome() {
@@ -57,10 +74,10 @@ public class Alunos {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public char getCelular() {
+	public String getCelular() {
 		return celular;
 	}
-	public void setCelular(char celular) {
+	public void setCelular(String celular) {
 		this.celular = celular;
 	}
 	public String getLogin() {

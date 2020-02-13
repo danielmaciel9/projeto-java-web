@@ -36,47 +36,59 @@
 	<div class="container col-md-5">
 		<div class="card">
 			<div class="card-body">
-				<c:if test="${user != null}">
-					<form action="update" method="post">
+				<c:if test="${curso != null}">
+					<form action="updateCurso" method="post">
 				</c:if>
-				<c:if test="${user == null}">
-					<form action="insert" method="post">
+				<c:if test="${curso == null}">
+					<form action="insertCurso" method="post">
 				</c:if>
 
 				<caption>
 					<h2>
-						<c:if test="${user != null}">
-            			Edit User
+						<c:if test="${curso != null}">
+            			Editar Curso
             		</c:if>
-						<c:if test="${user == null}">
-            			Add New User
+						<c:if test="${curso == null}">
+            			Adicionar novo curso
             		</c:if>
 					</h2>
 				</caption>
 
-				<c:if test="${user != null}">
-					<input type="hidden" name="id" value="<c:out value='${user.id}' />" />
+				<c:if test="${curso != null}">
+					<input type="hidden" name="id" value="<c:out value='${curso.id}' />" />
 				</c:if>
 
 				<fieldset class="form-group">
-					<label>User Name</label> <input type="text"
-						value="<c:out value='${user.name}' />" class="form-control"
-						name="name" required="required">
+					<label>Nome do Curso</label> <input type="text"
+						value="<c:out value='${curso.nome}' />" class="form-control"
+						name="nome" required="required">
 				</fieldset>
 
 				<fieldset class="form-group">
-					<label>User Email</label> <input type="text"
-						value="<c:out value='${user.email}' />" class="form-control"
-						name="email">
+					<label>Requisito do Curso</label> <input type="text"
+						value="<c:out value='${curso.requisito}' />" class="form-control"
+						name="requisito">
 				</fieldset>
 
 				<fieldset class="form-group">
-					<label>User Country</label> <input type="text"
-						value="<c:out value='${user.country}' />" class="form-control"
-						name="country">
+					<label>Ementa do curso</label> <input type="text"
+						value="<c:out value='${curso.ementa}' />" class="form-control"
+						name="ementa">
+				</fieldset>
+				
+				<fieldset class="form-group">
+					<label>Carga Horária</label> <input type="text"
+						value="<c:out value='${curso.carga_horaria}' />" class="form-control"
+						name="carga_horaria">
+				</fieldset>
+				
+				<fieldset class="form-group">
+					<label>Preço</label> <input type="text"
+						value="<c:out value='${curso.preco}' />" class="form-control"
+						name="preco">
 				</fieldset>
 
-				<button type="submit" class="btn btn-success">Save</button>
+				<button type="submit" class="btn btn-success">Salvar</button>
 				</form>
 			</div>
 		</div>

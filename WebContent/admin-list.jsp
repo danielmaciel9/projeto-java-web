@@ -26,6 +26,10 @@
 					class="nav-link">Administradores</a></li>
 				<li><a href="<%=request.getContextPath()%>/listInstrutores"
 					class="nav-link">Instrutores</a></li>
+				<li><a href="<%=request.getContextPath()%>/listCursos"
+					class="nav-link">Cursos</a></li>
+				<li><a href="<%=request.getContextPath()%>/listAlunos"
+					class="nav-link">Alunos</a></li>
 			</ul>
 		</nav>
 	</header>
