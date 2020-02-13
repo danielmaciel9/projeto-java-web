@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
-<title>User Management Application</title>
+<title>Admin Form</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
@@ -15,7 +15,7 @@
 		<nav class="navbar navbar-expand-md navbar-dark"
 			style="background-color: tomato">
 			<div>
-				<a href="https://www.javaguides.net" class="navbar-brand"> User Management App </a>
+				<a href="https://www.javaguides.net" class="navbar-brand"> Administrador Form </a>
 			</div>
 
 			<ul class="navbar-nav">
@@ -32,47 +32,47 @@
 	<div class="container col-md-5">
 		<div class="card">
 			<div class="card-body">
-				<c:if test="${user != null}">
-					<form action="update" method="post">
+				<c:if test="${admin != null}">
+					<form action="updateAdmin" method="post">
 				</c:if>
-				<c:if test="${user == null}">
-					<form action="insert" method="post">
+				<c:if test="${admin == null}">
+					<form action="insertAdmin" method="post">
 				</c:if>
 
 				<caption>
 					<h2>
-						<c:if test="${user != null}">
-            			Edit User
+						<c:if test="${admin != null}">
+            			Editar Administrador
             		</c:if>
-						<c:if test="${user == null}">
-            			Add New User
+						<c:if test="${admin == null}">
+            			Adicionar um novo Administrador
             		</c:if>
 					</h2>
 				</caption>
 
-				<c:if test="${user != null}">
-					<input type="hidden" name="id" value="<c:out value='${user.id}' />" />
+				<c:if test="${admin != null}">
+					<input type="hidden" name="id" value="<c:out value='${admin.id}' />" />
 				</c:if>
 
 				<fieldset class="form-group">
-					<label>User Name</label> <input type="text"
-						value="<c:out value='${user.name}' />" class="form-control"
-						name="name" required="required">
+					<label>Digite o nome</label> <input type="text"
+						value="<c:out value='${admin.nome}' />" class="form-control"
+						name="nome" required="required">
 				</fieldset>
 
 				<fieldset class="form-group">
-					<label>User Email</label> <input type="text"
-						value="<c:out value='${user.email}' />" class="form-control"
-						name="email">
+					<label>Digite o login</label> <input type="text"
+						value="<c:out value='${admin.login}' />" class="form-control"
+						name="login">
 				</fieldset>
 
 				<fieldset class="form-group">
-					<label>User Country</label> <input type="text"
-						value="<c:out value='${user.country}' />" class="form-control"
-						name="country">
+					<label>Digite a senha</label> <input type="text"
+						value="<c:out value='${admin.senha}' />" class="form-control"
+						name="senha">
 				</fieldset>
 
-				<button type="submit" class="btn btn-success">Save</button>
+				<button type="submit" class="btn btn-success">Salvar</button>
 				</form>
 			</div>
 		</div>
