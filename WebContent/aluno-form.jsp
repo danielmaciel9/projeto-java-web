@@ -27,6 +27,10 @@
 					class="nav-link">Cursos</a></li>
 				<li><a href="<%=request.getContextPath()%>/listAlunos"
 					class="nav-link">Alunos</a></li>
+				<li><a href="<%=request.getContextPath()%>/listTurmas"
+					class="nav-link">Turmas</a></li>
+				<li><a href="<%=request.getContextPath()%>/listMatriculas"
+					class="nav-link">Matriculas</a></li>
 			</ul>
 		</nav>
 	</header>

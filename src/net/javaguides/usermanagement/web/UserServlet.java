@@ -2,6 +2,8 @@ package net.javaguides.usermanagement.web;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -19,6 +21,10 @@ import net.javaguides.usermanagement.dao.CursoDAO;
 import net.javaguides.usermanagement.model.Curso;
 import net.javaguides.usermanagement.dao.AlunoDAO;
 import net.javaguides.usermanagement.model.Aluno;
+import net.javaguides.usermanagement.dao.TurmaDAO;
+import net.javaguides.usermanagement.model.Turma;
+import net.javaguides.usermanagement.dao.MatriculaDAO;
+import net.javaguides.usermanagement.model.Matricula;
 
 @WebServlet("/")
 public class UserServlet extends HttpServlet {
@@ -27,12 +33,16 @@ public class UserServlet extends HttpServlet {
 	private InstrutorDAO instrutorDAO;
 	private CursoDAO cursoDAO;
 	private AlunoDAO alunoDAO;
+	private TurmaDAO turmaDAO;
+	private MatriculaDAO matriculaDAO;
 	
 	public void init() {
 		administradorDAO = new AdministradorDAO();
 		instrutorDAO = new InstrutorDAO();
 		cursoDAO = new CursoDAO();
 		alunoDAO = new AlunoDAO();
+		turmaDAO = new TurmaDAO();
+		matriculaDAO = new MatriculaDAO();
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -58,6 +68,12 @@ public class UserServlet extends HttpServlet {
 			case "/newAluno":
 				showNewFormAluno(request, response);
 				break;
+			case "/newTurma":
+				showNewFormTurma(request, response);
+				break;
+			case "/newMatricula":
+				showNewFormMatricula(request, response);
+				break;
 			case "/insertAdmin":
 				insertAdmin(request, response);
 				break;
@@ -69,6 +85,12 @@ public class UserServlet extends HttpServlet {
 				break;
 			case "/insertAluno":
 				insertAluno(request, response);
+				break;
+			case "/insertTurma":
+				insertTurma(request, response);
+				break;
+			case "/insertMatricula":
+				insertMatricula(request, response);
 				break;
 			case "/deleteAdmin":
 				deleteAdmin(request, response);
@@ -82,6 +104,12 @@ public class UserServlet extends HttpServlet {
 			case "/deleteAluno":
 				deleteAluno(request, response);
 				break;
+			case "/deleteTurma":
+				deleteTurma(request, response);
+				break;
+			case "/deleteMatricula":
+				deleteMatricula(request, response);
+				break;
 			case "/editAdmin":
 				showEditFormAdmin(request, response);
 				break;
@@ -93,6 +121,12 @@ public class UserServlet extends HttpServlet {
 				break;
 			case "/editAluno":
 				showEditFormAluno(request, response);
+				break;
+			case "/editTurma":
+				showEditFormTurma(request, response);
+				break;
+			case "/editMatricula":
+				showEditFormMatricula(request, response);
 				break;
 			case "/updateAdmin":
 				updateAdmin(request, response);
@@ -106,6 +140,12 @@ public class UserServlet extends HttpServlet {
 			case "/updateAluno":
 				updateAluno(request, response);
 				break;
+			case "/updateTurma":
+				updateTurma(request, response);
+				break;
+			case "/updateMatricula":
+				updateMatricula(request, response);
+				break;
 			case "/listAdmin":
 				listAdminUser(request, response);
 				break;
@@ -117,6 +157,12 @@ public class UserServlet extends HttpServlet {
 				break;
 			case "/listAlunos":
 				listAluno(request, response);
+				break;
+			case "/listTurmas":
+				listTurma(request, response);
+				break;
+			case "/listMatriculas":
+				listMatricula(request, response);
 				break;
 			default:
 				listAdminUser(request, response);
@@ -384,5 +430,157 @@ public class UserServlet extends HttpServlet {
 	}
 	
 	/****************** FIM DO SERVLET - ALUNO ******************/
+	
+	/****************** PARTE DO SERVLET - TURMA ******************/
+	
+	private void listTurma(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
+		List<Turma> listTurma = turmaDAO.selectAllTurmas();
+		request.setAttribute("listTurma", listTurma);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("turma-list.jsp");
+		dispatcher.forward(request, response);
+	}
+	
+	private void showNewFormTurma(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		RequestDispatcher dispatcher = request.getRequestDispatcher("turma-form.jsp");
+		dispatcher.forward(request, response);
+	}
+	
+	private void showEditFormTurma(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, ServletException, IOException {
+		int id = Integer.parseInt(request.getParameter("id"));
+		Turma existingUser = turmaDAO.selectTurma(id);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("turma-form.jsp");
+		request.setAttribute("turma", existingUser);
+		dispatcher.forward(request, response);
+
+	}
+	
+	private void insertTurma(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException {
+		
+		try{
+			String data_inicio = request.getParameter("data_inicio");
+			Date date_convert_inicio = new SimpleDateFormat("dd/MM/yyyy").parse(data_inicio);
+			String data_final = request.getParameter("data_final");
+			Date date_convert_final = new SimpleDateFormat("dd/MM/yyyy").parse(data_final);
+			Integer carga_horaria = Integer.parseInt(request.getParameter("carga_horaria"));
+			Integer cursos_id = Integer.parseInt(request.getParameter("cursos_id"));
+			Integer instrutores_id = Integer.parseInt(request.getParameter("instrutores_id"));
+			Turma newTurma = new Turma(instrutores_id, cursos_id, date_convert_inicio, date_convert_final, carga_horaria);
+			turmaDAO.insertTurma(newTurma);
+			response.sendRedirect("listTurmas");
+		}catch(Exception e) {
+			System.out.println("deu erro");
+			System.out.println(e);
+		}		
+		
+	}
+	
+	private void updateTurma(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException {
+		try{
+			int id = Integer.parseInt(request.getParameter("id"));
+			String data_inicio = request.getParameter("data_inicio");
+			Date date_convert_inicio = new SimpleDateFormat("dd/MM/yyyy").parse(data_inicio);
+			String data_final = request.getParameter("data_final");
+			Date date_convert_final = new SimpleDateFormat("dd/MM/yyyy").parse(data_final);
+			Integer carga_horaria = Integer.parseInt(request.getParameter("carga_horaria"));
+			Integer cursos_id = Integer.parseInt(request.getParameter("cursos_id"));
+			Integer instrutores_id = Integer.parseInt(request.getParameter("instrutores_id"));
+			Turma book = new Turma(id, instrutores_id, cursos_id, date_convert_inicio, date_convert_final, carga_horaria);
+			turmaDAO.updateTurma(book);
+			response.sendRedirect("listTurmas");
+		}catch(Exception e) {
+			System.out.println("deu erro");
+			System.out.println(e);
+		}	
+	}
+	
+	private void deleteTurma(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException {
+		int id = Integer.parseInt(request.getParameter("id"));
+		turmaDAO.deleteTurma(id);
+		response.sendRedirect("listTurmas");
+
+	}
+	
+	/****************** FIM DO SERVLET - TURMA ******************/
+	
+	/****************** PARTE DO SERVLET - MATRICULA ******************/
+	
+	private void listMatricula(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
+		List<Matricula> matriculas = matriculaDAO.selectAllMatriculas();
+		request.setAttribute("listMatricula", matriculas);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("matricula-list.jsp");
+		dispatcher.forward(request, response);
+	}
+	
+	private void showNewFormMatricula(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		RequestDispatcher dispatcher = request.getRequestDispatcher("matricula-form.jsp");
+		dispatcher.forward(request, response);
+	}
+	
+	private void showEditFormMatricula(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, ServletException, IOException {
+		int id = Integer.parseInt(request.getParameter("id"));
+		Matricula existingUser = matriculaDAO.selectMatricula(id);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("matricula-form.jsp");
+		request.setAttribute("matricula", existingUser);
+		dispatcher.forward(request, response);
+
+	}
+	
+	private void insertMatricula(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException {
+		
+		try{
+			Integer turmas_id = Integer.parseInt(request.getParameter("turmas_id"));
+			Integer alunos_id = Integer.parseInt(request.getParameter("alunos_id"));
+			String data_matricula = request.getParameter("data_matricula");
+			Date data_matricula_final = new SimpleDateFormat("dd/MM/yyyy").parse(data_matricula);
+			Double nota = Double.parseDouble(request.getParameter("nota"));
+			Matricula newMatricula = new Matricula(turmas_id, alunos_id, data_matricula_final, nota);
+			matriculaDAO.insertMatricula(newMatricula);
+			response.sendRedirect("listMatriculas");
+		}catch(Exception e) {
+			System.out.println("deu erro");
+			System.out.println(e);
+		}		
+		
+	}
+	
+	private void updateMatricula(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException {
+		
+		try{
+			int id = Integer.parseInt(request.getParameter("id"));
+			Integer turmas_id = Integer.parseInt(request.getParameter("turmas_id"));
+			Integer alunos_id = Integer.parseInt(request.getParameter("alunos_id"));
+			String data_matricula = request.getParameter("data_matricula");
+			Date data_matricula_final = new SimpleDateFormat("dd/MM/yyyy").parse(data_matricula);
+			Double nota = Double.parseDouble(request.getParameter("nota"));
+			Matricula book = new Matricula(id, turmas_id, alunos_id, data_matricula_final, nota);
+			matriculaDAO.updateMatricula(book);
+			response.sendRedirect("listMatriculas");
+		}catch(Exception e) {
+			System.out.println("deu erro");
+			System.out.println(e);
+		}		
+		
+	}
+	
+	private void deleteMatricula(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException {
+		int id = Integer.parseInt(request.getParameter("id"));
+		matriculaDAO.deleteMatricula(id);
+		response.sendRedirect("listMatriculas");
+
+	}
+	
+	/****************** FIM DO SERVLET - MATRICULA ******************/
 	
 }
