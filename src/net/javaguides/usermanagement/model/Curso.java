@@ -8,6 +8,7 @@ public class Curso {
 	protected int carga_horaria;
 	protected double preco;
 	
+	
 	public Curso(String nome, String requisito, String ementa, int carga_horaria, double preco) {
 		super();
 		this.nome = nome;
@@ -25,6 +26,12 @@ public class Curso {
 		this.ementa = ementa;
 		this.carga_horaria = carga_horaria;
 		this.preco = preco;
+	}
+	
+	public Curso(int id, String nome) {
+		super();
+		this.id = id;
+		this.nome = nome;
 	}
 	
 	public int getId() {

@@ -1,40 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<html>
-<head>
-<title>User Management Application</title>
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-	crossorigin="anonymous">
-</head>
-<body>
-
-	<header>
-		<nav class="navbar navbar-expand-md navbar-dark"
-			style="background-color: tomato">
-			<div>
-				<a href="https://www.javaguides.net" class="navbar-brand"> User
-					Management App </a>
-			</div>
-
-			<ul class="navbar-nav">
-				<li><a href="<%=request.getContextPath()%>/listAdmin"
-					class="nav-link">Administradores</a></li>
-				<li><a href="<%=request.getContextPath()%>/listInstrutores"
-					class="nav-link">Instrutores</a></li>
-				<li><a href="<%=request.getContextPath()%>/listCursos"
-					class="nav-link">Cursos</a></li>
-				<li><a href="<%=request.getContextPath()%>/listAlunos"
-					class="nav-link">Alunos</a></li>
-				<li><a href="<%=request.getContextPath()%>/listTurmas"
-					class="nav-link">Turmas</a></li>
-				<li><a href="<%=request.getContextPath()%>/listMatriculas"
-					class="nav-link">Matriculas</a></li>
-			</ul>
-		</nav>
-	</header>
+<%@include file="/WEB-INF/include/header.jsp"%>
 	<br>
 
 	<div class="row">
@@ -48,15 +12,16 @@
 				<a href="<%=request.getContextPath()%>/newCurso" class="btn btn-success">Adicionar novo curso</a>
 			</div>
 			<br>
-			<table class="table table-bordered">
+			<table class="table table-bordered table-striped">
 				<thead>
 					<tr>
 						<th>ID</th>
 						<th>Nome</th>
 						<th>Requisito</th>
 						<th>Ementa</th>
-						<th>Carga Hor√°ria</th>
-						<th>Pre√ßo</th>
+						<th>Carga Hor·ria</th>
+						<th>PreÁo</th>
+						<th>Alunos e notas do curso</th>
 						<th>Actions</th>
 					</tr>
 				</thead>
@@ -71,9 +36,12 @@
 							<td><c:out value="${user.ementa}" /></td>
 							<td><c:out value="${user.carga_horaria}" /></td>
 							<td><c:out value="${user.preco}" /></td>
-							<td><a href="editCurso?id=<c:out value='${user.id}' />">Edit</a>
-								&nbsp;&nbsp;&nbsp;&nbsp; <a
-								href="deleteCurso?id=<c:out value='${user.id}' />">Delete</a></td>
+							<td><a href="listAlunosFromCurso?id=<c:out value='${user.id}' />">Visualizar alunos e notas</a></td>
+							<td>
+							&nbsp;&nbsp;&nbsp;&nbsp; 
+							<a href="editCurso?id=<c:out value='${user.id}' />">Edit</a>
+								&nbsp;&nbsp;&nbsp;&nbsp; 
+							<a href="deleteCurso?id=<c:out value='${user.id}' />">Delete</a></td>
 						</tr>
 					</c:forEach>
 					<!-- } -->
@@ -82,5 +50,4 @@
 			</table>
 		</div>
 	</div>
-</body>
-</html>
+<%@include file="/WEB-INF/include/footer.jsp"%>

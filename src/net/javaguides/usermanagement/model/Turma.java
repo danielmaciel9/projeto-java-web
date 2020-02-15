@@ -9,6 +9,7 @@ public class Turma {
 	protected Date data_inicio;
 	protected Date data_final;
 	protected int carga_horaria;
+	protected Curso curso;
 	
 	public Turma(int instrutores_id, int cursos_id, Date data_inicio, Date data_final, int carga_horaria) {
 		super();
@@ -29,6 +30,20 @@ public class Turma {
 		this.carga_horaria = carga_horaria;
 	}
 	
+	public Turma(int id, Curso curso) {
+		super();
+		this.id = id;
+		this.curso = curso;
+	}
+
+	public Curso getCurso() {
+		return curso;
+	}
+
+	public void setCurso(Curso curso) {
+		this.curso = curso;
+	}
+
 	public int getId() {
 		return id;
 	}

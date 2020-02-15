@@ -8,6 +8,7 @@ public class Matricula {
 	protected int alunos_id;
 	protected Date data_matricula;
 	protected double nota;
+	protected Turma turma;
 	
 	public Matricula(int turmas_id, int alunos_id, Date data_matricula, double nota) {
 		super();
@@ -23,6 +24,20 @@ public class Matricula {
 		this.alunos_id = alunos_id;
 		this.data_matricula = data_matricula;
 		this.nota = nota;
+	}
+	
+	public Matricula(int id, double nota, Turma turma) {
+		super();
+		this.id = id;
+		this.nota = nota;
+		this.turma = turma;
+	}
+	
+	public Turma getTurma() {
+		return turma;
+	}
+	public void setTurma(Turma turma) {
+		this.turma = turma;
 	}
 	public int getId() {
 		return id;

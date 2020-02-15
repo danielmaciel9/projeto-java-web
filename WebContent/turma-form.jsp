@@ -1,39 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<html>
-<head>
-<title>Turma Form</title>
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-	crossorigin="anonymous">
-</head>
-<body>
-
-	<header>
-		<nav class="navbar navbar-expand-md navbar-dark"
-			style="background-color: tomato">
-			<div>
-				<a href="https://www.javaguides.net" class="navbar-brand"> Turma Form </a>
-			</div>
-
-			<ul class="navbar-nav">
-				<li><a href="<%=request.getContextPath()%>/listAdmin"
-					class="nav-link">Administradores</a></li>
-				<li><a href="<%=request.getContextPath()%>/listInstrutores"
-					class="nav-link">Instrutores</a></li>
-				<li><a href="<%=request.getContextPath()%>/listCursos"
-					class="nav-link">Cursos</a></li>
-				<li><a href="<%=request.getContextPath()%>/listAlunos"
-					class="nav-link">Alunos</a></li>
-				<li><a href="<%=request.getContextPath()%>/listTurmas"
-					class="nav-link">Turmas</a></li>
-				<li><a href="<%=request.getContextPath()%>/listMatriculas"
-					class="nav-link">Matriculas</a></li>
-			</ul>
-		</nav>
-	</header>
+<%@include file="/WEB-INF/include/header.jsp"%>
 	<br>
 	<div class="container col-md-5">
 		<div class="card">
@@ -73,7 +38,7 @@
 				</fieldset>
 
 				<fieldset class="form-group">
-					<label>Digite a data de in√≠cio</label> <input type="input"
+					<label>Digite a data de inÌcio</label> <input type="input"
 						value="<c:out value='${turma.data_inicio}' />" class="form-control"
 						name="data_inicio" required="required">
 				</fieldset>
@@ -85,7 +50,7 @@
 				</fieldset>
 
 				<fieldset class="form-group">
-					<label>Digite a Carga hor√°ria</label> <input type="text"
+					<label>Digite a Carga hor·ria</label> <input type="text"
 						value="<c:out value='${turma.carga_horaria}' />" class="form-control"
 						name="carga_horaria">
 				</fieldset>
@@ -95,5 +60,4 @@
 			</div>
 		</div>
 	</div>
-</body>
-</html>
+<%@include file="/WEB-INF/include/footer.jsp"%>

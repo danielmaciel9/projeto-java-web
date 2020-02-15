@@ -1,0 +1,873 @@
+/* Guia do CSS do Cursos Lero Lero **/
+
+/** Home **/
+/* 1 - Header */
+/* 2 - Seção 1 */
+/* 3 - Seção 2 */
+/* 4 - Footer */
+
+/** Páginas Internas **/
+/* Page - Sobre Nós */
+/* Page - Login */
+/* Page - Instrutores */
+/* Page - Comentários */
+/* Page - Registro */
+/* Page - Tabelas */
+/* Page - Obrigado */
+
+/* Responsivo */
+
+/* 1 - Header */
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+header{
+    padding-top: 30px;
+}
+header img{
+    margin: auto;
+    display: block;
+    max-width: 200px;
+}
+header .navbarLeroLero{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    background-color: #6C40B3;
+    padding: 8px;
+}
+header .navbarLeroLero ul{
+    list-style: none;
+    margin-bottom: 0px;
+    padding: 0px;
+}
+header .navbarLeroLero ul li{
+    display: inline-block;
+}
+header .navbarLeroLero li>a{
+    padding: 15px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 14px;
+}
+/* Fim - Header */
+
+/* 2 - Seção 1 */
+#section1{
+    background-image: url('WEB-INF/imagens/banner-lerolero.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#section1 .container{
+    min-height: calc(100vh - 244.66px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+#section1 h1{
+    color: #fff;
+    font-weight: 900;
+    text-shadow: 1px 1px 1px rgba(000, 000, 000, 0.51);
+}
+#section1 p{
+    color: #fff;
+    text-shadow: 1px 1px 1px rgba(000, 000, 000, 0.51);
+    font-weight: 400;
+}
+#section1 a{
+    margin-top: 15px;
+    background-color: #FFD728;
+    padding: 20px 30px;
+    display: inline-block;
+    color: #000;
+    border-radius: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: 0.2s;
+}
+#section1 a:hover{
+    text-decoration: none;
+    color: #FFD728;
+    background-color: #000;
+    transition: 0.2s;
+}
+/* Fim - Seção 1 */
+
+/* 3 - Seção 2 */
+#section2{
+    padding: 50px 0px;
+}
+#section2 h2{
+    margin-top: 0px;
+    font-weight: 700;
+    position: relative;
+    margin-bottom: 25px;
+}
+#section2 h2:after{
+    position: absolute;
+    content: '';
+    z-index: -1;
+    background-color: #FFD728;
+    height: 18px;
+    bottom: 0px;
+    left: 0px;
+    width: 270px;
+}
+#section2 .row{
+    margin-top: 40px;
+}
+#section2 h3{
+    font-weight: 700;
+    font-size: 20px;
+}
+#section2 h4{
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+#section2 p{
+    font-size: 14px;
+}
+#section2 .card-img-top{
+    max-height: 170px;
+    object-fit: cover;
+}
+#section2 .chipsClasses {
+    padding-left: 0px;
+    margin-bottom: 0px;
+    list-style: none;
+}
+#section2 .chipsClasses li{
+    background-color: #371B66;
+    padding: 10px 15px;
+    font-size: 12px;
+    border-radius: 20px;
+    display: inline-block;
+    color: #fff;
+    font-weight: 400;
+    margin-right: 5px;
+}
+#section2 .card{
+    margin-bottom: 20px;
+}
+/* Fim - Seção 2 */
+
+/* 4 - Footer */
+footer{
+    box-shadow: 0px -1px 6px 0px rgba(0,0,0,0.16);
+    padding-top: 40px;
+    margin-top: 30px;
+}
+footer h3{
+    font-weight: 700;
+    font-size: 14px;
+}
+footer a{
+    font-weight: 300;
+    color: #000;
+    font-size: 14px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+footer p{
+    font-size: 15px;
+    font-weight: 300;
+}
+footer .instagramTalk{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+}
+footer .instagramTalk img{
+    margin-right: 5px;
+}
+footer img{
+    max-width: 100px;
+}
+footer .col-md-6:last-child{
+    text-align: right;
+}
+footer .col-md-6:last-child h3{
+    margin-top: 20px;
+}
+footer .copyrights{
+    background-color: #000;
+    padding: 15px;
+    text-align: center;
+    color: #fff;
+    font-size: 15px;
+}
+/* Fim - Footer */
+
+/* Page - Sobre Nós */
+#aboutUs{
+    padding: 20px 0px;
+}
+#aboutUs .row{
+    display: flex;
+    align-items: center;
+}
+#aboutUs h2{
+    margin-top: 0px;
+    font-weight: 700;
+    position: relative;
+    margin-bottom: 25px;
+}
+#aboutUs h2:after{
+    position: absolute;
+    content: '';
+    z-index: -1;
+    background-color: #FFD728;
+    height: 18px;
+    bottom: 0px;
+    left: 0px;
+    width: 200px;
+}
+#aboutUs a{
+    margin-top: 15px;
+    background-color: #3B50BF;
+    padding: 15px 20px;
+    display: inline-block;
+    color: #fff;
+    border-radius: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: 0.2s;
+    font-size: 16px;
+    border: 2px solid #3B50BF;
+}
+#aboutUs a:hover{
+    text-decoration: none;
+    color: #3B50BF;
+    background-color: #fff;
+    transition: 0.2s;
+}
+/* Fim - Sobre Nós */
+
+
+/* Page - Login */
+#loginSection{
+    padding: 40px 0px;
+}
+#loginSection h4{
+    margin-bottom: 10px;
+}
+#loginSection .wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column; 
+    justify-content: center;
+    width: 100%;
+    min-height: 100%;
+    padding: 20px;
+  }
+  #loginSection #formContent {
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    background: #fff;
+    max-width: 450px;
+    position: relative;
+    text-align: center;
+    border: 1px solid rgba(0,0,0,0.2);
+    padding: 40px 20px;
+  }
+  #loginSection #formFooter {
+    background-color: #f6f6f6;
+    border-top: 1px solid #dce8f1;
+    padding: 25px;
+    text-align: center;
+    -webkit-border-radius: 0 0 10px 10px;
+    border-radius: 0 0 10px 10px;
+  }
+  #loginSection h2.inactive {
+    color: #cccccc;
+  }
+  #loginSection h2.active {
+    color: #0d0d0d;
+    border-bottom: 2px solid #5fbae9;
+  }
+  #loginSection input[type=button], input[type=submit], input[type=reset]  {
+    background-color: #9A5CFF;
+    border: none;
+    color: white;
+    padding: 15px 80px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 13px;
+    -webkit-box-shadow: 0 10px 30px 0 rgba(154,92,255,0.4);
+    box-shadow: 0 10px 30px 0 rgba(154,92,255,0.4);
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    margin: 5px 20px 5px 20px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+  #loginSection input[type=submit]{
+      margin-top: 20px;
+  }
+  #loginSection input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
+    background-color: #6C40B3;
+  }
+  #loginSection input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
+    -moz-transform: scale(0.95);
+    -webkit-transform: scale(0.95);
+    -o-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    transform: scale(0.95);
+  }
+  #loginSection input[type=text] {
+    background-color: #f6f6f6;
+    border: none;
+    color: #0d0d0d;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px;
+    width: 85%;
+    border: 2px solid #f6f6f6;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+  }
+  #loginSection input[type=text]:focus {
+    background-color: #fff;
+    border-bottom: 2px solid #5fbae9;
+  }
+  #loginSection input[type=text]:placeholder {
+    color: #cccccc;
+  }
+  /* ANIMAÇÕES */
+  .fadeInDown {
+    -webkit-animation-name: fadeInDown;
+    animation-name: fadeInDown;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+  
+  @-webkit-keyframes fadeInDown {
+    0% {
+      opacity: 0;
+      -webkit-transform: translate3d(0, -100%, 0);
+      transform: translate3d(0, -100%, 0);
+    }
+    100% {
+      opacity: 1;
+      -webkit-transform: none;
+      transform: none;
+    }
+  }
+  
+  @keyframes fadeInDown {
+    0% {
+      opacity: 0;
+      -webkit-transform: translate3d(0, -100%, 0);
+      transform: translate3d(0, -100%, 0);
+    }
+    100% {
+      opacity: 1;
+      -webkit-transform: none;
+      transform: none;
+    }
+  }
+
+  @-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+  @-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+  @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+  
+  .fadeIn {
+    opacity:0;
+    -webkit-animation:fadeIn ease-in 1;
+    -moz-animation:fadeIn ease-in 1;
+    animation:fadeIn ease-in 1;
+  
+    -webkit-animation-fill-mode:forwards;
+    -moz-animation-fill-mode:forwards;
+    animation-fill-mode:forwards;
+  
+    -webkit-animation-duration:1s;
+    -moz-animation-duration:1s;
+    animation-duration:1s;
+  }
+  
+  .fadeIn.first {
+    -webkit-animation-delay: 0.4s;
+    -moz-animation-delay: 0.4s;
+    animation-delay: 0.4s;
+  }
+  
+  .fadeIn.second {
+    -webkit-animation-delay: 0.6s;
+    -moz-animation-delay: 0.6s;
+    animation-delay: 0.6s;
+  }
+  
+  .fadeIn.third {
+    -webkit-animation-delay: 0.8s;
+    -moz-animation-delay: 0.8s;
+    animation-delay: 0.8s;
+  }
+  
+  .fadeIn.fourth {
+    -webkit-animation-delay: 1s;
+    -moz-animation-delay: 1s;
+    animation-delay: 1s;
+  }
+
+  .underlineHover:after {
+    display: block;
+    left: 0;
+    bottom: -10px;
+    width: 0;
+    height: 2px;
+    background-color: #56baed;
+    content: "";
+    transition: width 0.2s;
+  }  
+  .underlineHover:hover {
+    color: #0d0d0d;
+  }
+  .underlineHover:hover:after{
+    width: 100%;
+  }
+  *:focus {
+      outline: none;
+  } 
+  
+/* Fim - Login */
+
+/* Page - Instrutores */
+#instructors{
+    padding: 40px;
+}
+#instructors h2{
+    margin-top: 0px;
+    font-weight: 700;
+    position: relative;
+    margin-bottom: 40px;
+}
+#instructors h2:after{
+    position: absolute;
+    content: '';
+    z-index: -1;
+    background-color: #FFD728;
+    height: 18px;
+    bottom: 0px;
+    left: 0px;
+    width: 200px;
+}
+#instructors .card-img-top{
+    height: 280px;
+    object-fit: cover;
+}
+#instructors .col-md-3{
+    margin-bottom: 30px;
+}
+#instructors .card{
+    min-height: 481px;
+}
+
+.skill-bar-container {
+    position: relative;
+    width: 100%;
+    border-radius: 4px;
+    background-color: #CAA8FF;
+    margin-bottom: 0.5em;
+  }
+  .skill-bar-container .skill-bar {
+    display: block;
+    border-radius: 4px;
+    height: 25px;
+  }
+  .skill-bar-container .skill-bar.level1 {
+    width: 20%;
+    background-color: #4D2E7F;
+  }
+  .skill-bar-container .skill-bar.level2 {
+    width: 40%;
+    background-color: #4D2E7F;
+  }
+  .skill-bar-container .skill-bar.level3 {
+    width: 60%;
+    background-color: #4D2E7F;
+  }
+  .skill-bar-container .skill-bar.level4 {
+    width: 80%;
+    background-color: #4D2E7F;
+  }
+  .skill-bar-container .skill-bar.level5 {
+    width: 100%;
+    background-color: #4D2E7F;
+  }
+  .skill-bar-container .skill-name {
+    position: absolute;
+    top: 2px;
+    left: 10px;
+    font-weight: 600;
+    color: #fff;
+    font-size: 13px;
+  }
+  .skill-bar-container .skill-percent {
+    position: absolute;
+    top: 3px;
+    right: 10px;
+    color: #fff;
+    font-weight: 400;
+    font-size: 14px;
+  }
+  
+/* Fim - Instrutores */
+
+/* Page - Comentários */
+#commentsSection{
+    padding: 40px;
+}
+#commentsSection .boxDepoimentos{
+    padding: 30px;
+    box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16);
+}
+#commentsSection h2{
+    margin-top: 0px;
+    font-weight: 700;
+    position: relative;
+    margin-bottom: 40px;
+}
+#commentsSection h2:after{
+    position: absolute;
+    content: '';
+    z-index: -1;
+    background-color: #FFD728;
+    height: 18px;
+    bottom: 0px;
+    left: 0px;
+    width: 200px;
+}
+#commentsSection .boxDepoimentos p {
+    font-size: 14px;
+    margin-bottom: 15px;
+    font-weight: 100;
+    text-align: center;
+}
+#commentsSection .boxDepoimentos h4 {
+    margin-top: 12px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 600;
+}
+#commentsSection .boxDepoimentos h5 {
+    margin-top: 0px;
+    font-size: 14px;
+    font-weight: 300;
+}
+#commentsSection .imgDepoSec {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    height: 70px;
+    width: 70px;
+    margin: auto;
+    overflow: hidden;
+}
+#commentsSection .boxDepoimentos img {
+    margin-left: auto;
+}
+/* Fim - Comentários */
+
+/* Page - Registro */
+#registroSection{
+    padding: 40px 0px;
+}
+#registroSection label{
+    margin-top: 15px;
+}
+#registroSection h2{
+    margin-top: 0px;
+    font-weight: 700;
+    position: relative;
+    margin-bottom: 20px;
+}
+#registroSection h2:after{
+    position: absolute;
+    content: '';
+    z-index: -1;
+    background-color: #FFD728;
+    height: 18px;
+    bottom: 0px;
+    left: 0px;
+    width: 200px;
+}
+#registroSection input{
+    background-color: #f6f6f6;
+    border: none;
+    color: #0d0d0d;
+    padding: 20px 32px;
+    text-decoration: none;
+    font-size: 16px;
+    width: 100%;
+    border: 2px solid #f6f6f6;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+#registroSection select{
+    background-color: #f6f6f6;
+    border: none;
+    color: #0d0d0d;
+    text-decoration: none;
+    font-size: 16px;
+    width: 100%;
+    border: 2px solid #f6f6f6;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+#registroSection .btn{
+    background-color: #9A5CFF;
+    border: none;
+    color: white;
+    padding: 15px 80px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    text-transform: uppercase;
+    font-size: 13px;
+    -webkit-box-shadow: 0 10px 30px 0 rgba(154,92,255,0.4);
+    box-shadow: 0 10px 30px 0 rgba(154,92,255,0.4);
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    margin: 30px auto 15px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+#registroSection .btn:hover{
+    background-color: #6C40B3;
+}
+/* Fim - Registro */
+
+/* Page - Tabelas */
+#formTables{
+    padding: 40px 0px;
+}
+#formTables h2{
+    margin-top: 0px;
+    font-weight: 700;
+    position: relative;
+    margin-bottom: 20px;
+}
+#formTables label{
+    margin-top: 10px;
+}
+#formTables h2:after{
+    position: absolute;
+    content: '';
+    z-index: -1;
+    background-color: #FFD728;
+    height: 18px;
+    bottom: 0px;
+    left: 0px;
+    width: 200px;
+}
+#formTables input{
+    background-color: #f6f6f6;
+    border: none;
+    color: #0d0d0d;
+    padding: 20px 32px;
+    text-decoration: none;
+    font-size: 16px;
+    width: 100%;
+    border: 2px solid #f6f6f6;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+#formTables select{
+    background-color: #f6f6f6;
+    border: none;
+    color: #0d0d0d;
+    text-decoration: none;
+    font-size: 16px;
+    height: 50px;
+    width: 100%;
+    border: 2px solid #f6f6f6;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+#formTables .btn{
+    background-color: #9A5CFF;
+    border: none;
+    color: white;
+    padding: 15px 80px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    text-transform: uppercase;
+    font-size: 13px;
+    -webkit-box-shadow: 0 10px 30px 0 rgba(154,92,255,0.4);
+    box-shadow: 0 10px 30px 0 rgba(154,92,255,0.4);
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    margin: 30px auto 15px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+#formTables .btn:hover{
+    background-color: #6C40B3;
+}
+#formTables .nav-pills .nav-link.active{
+    background-color: #3B50BF;
+    color: #fff;
+}
+#formTables .nav-pills a{
+    color: #3B50BF;
+}
+#formTables #v-pills-tab{
+    margin-bottom: 30px;
+}
+form .error{
+    color: red;
+}
+/* Fim - Tabelas */
+
+/* Page - Obrigado */
+#thankSection{
+    padding: 50px;
+    text-align: center;
+}
+#thankSection .far{
+    color: #FFD728;
+    font-size: 60px;
+}
+#thankSection h1{
+    font-weight: 700;
+    margin-top: 15px;
+    text-align: center;
+}
+/* Fim - Obrigado */
+
+/* Responsivo */
+@media (max-width: 1200px){
+    #section2 .card{
+        min-height: 470px;
+    }
+    #section2 .chipsClasses li{
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 991px){
+    header .navbarLeroLero ul{
+        opacity: 0;
+        transition: 0.2s;
+        position: fixed;
+        top: 0;
+        right: -250px;
+        height: 100vh;
+        background-color: #371B66;
+        width: 250px;
+        padding-left: 15px;
+        padding-top: 15px;
+    }
+    header .navbarLeroLero ul li{
+        display: block;
+        margin: 20px 0px;
+    }
+    #menuMobile{
+        display: block !important;
+        font-size: 25px;
+        color: #fff;
+        cursor: pointer;
+    }
+    header .navbarLeroLero .activeMenu{
+        display: block !important;
+        transition: 0.2s;
+        opacity: 1;
+        z-index: 99999;
+        right: 0;
+    }
+    .closeMobMenu{
+        position: absolute;
+        color: #fff;
+        font-size: 18px;
+        font-weight: 700;
+        display: block !important;
+        cursor: pointer;
+        padding: 20px;
+        right: 15px;
+        top: 5px;
+    }
+    .col-md-4{
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    #section2 .card{
+        min-height: 420px;
+        margin-bottom: 30px;
+    }
+    #aboutUs img{
+        margin: auto;
+        margin-bottom: 30px;
+    }
+    #aboutUs .col-md-8{
+        order: 2;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    #aboutUs .col-md-4{
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    #instructors .col-md-3{
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    #commentsSection .boxDepoimentos{
+        text-align: center;
+    }
+}
+
+@media (max-width: 767px){
+    #thankSection h1{
+        font-size: 28px;
+    }
+    .col-md-4{
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    #instructors .col-md-3{
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}

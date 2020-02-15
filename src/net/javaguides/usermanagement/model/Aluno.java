@@ -14,6 +14,7 @@ public class Aluno {
 	protected String cep;
 	protected String comentario;
 	protected Boolean aprovado;
+	protected Matricula matricula;
 	
 	public Aluno(String cpf, String nome, String email, String celular, String login, String senha,
 			String endereco, String cidade, String bairro, String cep, String comentario, Boolean aprovado) {
@@ -50,6 +51,22 @@ public class Aluno {
 		this.aprovado = aprovado;
 	}
 	
+	
+	public Aluno(int id, String nome, Matricula matricula) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.matricula = matricula;
+	}
+
+	public Matricula getMatricula() {
+		return matricula;
+	}
+
+	public void setMatricula(Matricula matricula) {
+		this.matricula = matricula;
+	}
+
 	public int getId() {
 		return id;
 	}
