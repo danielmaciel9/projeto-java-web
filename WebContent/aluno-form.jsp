@@ -16,7 +16,7 @@
             			Editar Aluno
             		</c:if>
 						<c:if test="${aluno == null}">
-            			Adicionar um novo Aluno
+            			Cadastro de novo Aluno
             		</c:if>
 					</h2>
 				</caption>
@@ -92,7 +92,7 @@
 				</fieldset>
 
 				<fieldset class="form-group">
-					<label>Digite o aprovado</label> <input type="radio"
+					<input type="hidden"
 						value="<c:out value='${aluno.aprovado}' />" class="form-control"
 						name="aprovado">
 				</fieldset>

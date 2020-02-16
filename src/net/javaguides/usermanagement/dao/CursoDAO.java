@@ -33,6 +33,15 @@ public class CursoDAO {
 			"inner join alunos on matriculas.alunos_id = alunos.id\n" + 
 			"where cursos.id = ?;";
 	
+	
+	private static final String SELECT_ALUNO_CURSOS = "select alunos.nome, alunos.id, cursos.id, cursos.nome, matriculas.id, turmas.id, matriculas.nota\n" + 
+			"from matriculas\n" + 
+			"inner join turmas on matriculas.turmas_id = turmas.id\n" + 
+			"inner join cursos on turmas.cursos_id = cursos.id\n" + 
+			"inner join alunos on matriculas.alunos_id = alunos.id\n" + 
+			"where alunos.id = ?;";
+	
+	
 	public CursoDAO() {
 	}
 
@@ -135,6 +144,39 @@ public class CursoDAO {
 			System.out.println(preparedStatement);
 			// Step 3: Execute the query or update query
 			preparedStatement.setInt(1, curso.getId());
+			ResultSet rs = preparedStatement.executeQuery();
+
+			// Step 4: Process the ResultSet object.
+			while (rs.next()) {
+				int alunos_id = rs.getInt("alunos.id");
+				String alunos_nome = rs.getString("alunos.nome");
+				int matriculas_id = rs.getInt("matriculas.id");
+				Double matriculas_nota = rs.getDouble("matriculas.nota");
+				int cursos_id = rs.getInt("cursos.id");
+				String cursos_nome = rs.getString("cursos.nome");
+				
+				int turmas_id = rs.getInt("turmas.id");
+				
+				alunos.add(new Aluno(alunos_id, alunos_nome, new Matricula(matriculas_id, matriculas_nota, new Turma(turmas_id, new Curso(cursos_id, cursos_nome)))));
+			}
+		} catch (SQLException e) {
+			printSQLException(e);
+		}
+		return alunos;
+	}
+	
+	public List<Aluno> selectAlunoCursos(Aluno aluno) {
+
+		// using try-with-resources to avoid closing resources (boiler plate code)
+		List<Aluno> alunos = new ArrayList<>();
+		// Step 1: Establishing a Connection
+		try (Connection connection = getConnection();
+
+				// Step 2:Create a statement using connection object
+			PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALUNO_CURSOS);) {
+			System.out.println(preparedStatement);
+			// Step 3: Execute the query or update query
+			preparedStatement.setInt(1, aluno.getId());
 			ResultSet rs = preparedStatement.executeQuery();
 
 			// Step 4: Process the ResultSet object.

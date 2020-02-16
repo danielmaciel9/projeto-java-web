@@ -167,6 +167,8 @@ public class UserServlet extends HttpServlet {
 			case "/listAlunosFromCurso":
 				listAlunoCurso(request, response);
 				break;
+			case "/listAlunoShowCursos":
+				listAlunoListCursos(request, response);
 			case "/listInstrutoresValoresCursos":
 				listInstrutoresValorCurso(request, response);
 				break;
@@ -316,6 +318,16 @@ public class UserServlet extends HttpServlet {
 		int id = Integer.parseInt(request.getParameter("id"));
 		Curso curso = cursoDAO.selectCurso(id);
 		List<Aluno> listAlunos = cursoDAO.selectAlunoFromCurso(curso);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("alunoFrom-curso.jsp");
+		request.setAttribute("listAlunos", listAlunos);
+		dispatcher.forward(request, response);
+	}
+	
+	private void listAlunoListCursos(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
+		int id = Integer.parseInt(request.getParameter("id"));
+		Aluno aluno = alunoDAO.selectAluno(id);
+		List<Aluno> listAlunos = cursoDAO.selectAlunoCursos(aluno);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("alunoFrom-curso.jsp");
 		request.setAttribute("listAlunos", listAlunos);
 		dispatcher.forward(request, response);

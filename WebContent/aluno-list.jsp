@@ -1,5 +1,19 @@
 <%@include file="/WEB-INF/include/header.jsp"%>
+
 	<br>
+	
+	<c:if test="${empty user}">
+		<script>
+			window.location.href = "./login.jsp";
+		</script>
+			
+   </c:if>
+   
+   <c:if test="${tipo_acesso != 'administrador'}">
+       	<script>
+			window.location.href = "./loginsuccess.jsp";
+		</script>
+   	</c:if>
 
 	<div class="row">
 		<!-- <div class="alert alert-success" *ngIf='message'>{{message}}</div> -->

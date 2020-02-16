@@ -1,4 +1,18 @@
 <%@include file="/WEB-INF/include/header.jsp"%>
+
+	<c:if test="${empty user}">
+		<script>
+			window.location.href = "./login.jsp";
+		</script>
+			
+   </c:if>
+   
+    <c:if test="${tipo_acesso != 'administrador'}">
+       	<script>
+			window.location.href = "./loginsuccess.jsp";
+		</script>
+   	</c:if>
+   	
 	<br>
 
 	<div class="row">

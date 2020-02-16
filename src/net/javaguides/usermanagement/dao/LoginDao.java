@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 
+import net.javaguides.usermanagement.model.Administrador;
 import net.javaguides.usermanagement.model.Aluno;
 import net.javaguides.usermanagement.model.Instrutores;
 import net.javaguides.usermanagement.model.LoginBean;
@@ -18,8 +19,8 @@ public class LoginDao {
 	private String jdbcUsername = "root";
 	private String jdbcPassword = "";
 	private static final String SELECT_INSTRUTORES_BY_LOGIN = "select id, nome, email, valor_hora, login, senha, experiencia from instrutores where login = ? and senha = ?";
-	private static final String SELECT_ALUNO_BY_LOGIN = "select cpf, nome, email, celular, login, senha, endereco, cidade, bairro, cep, comentario, aprovado from alunos where login = ? and senha = ?";
-	
+	private static final String SELECT_ALUNO_BY_LOGIN = "select id, cpf, nome, email, celular, login, senha, endereco, cidade, bairro, cep, comentario, aprovado from alunos where login = ? and senha = ?";
+	private static final String SELECT_ADMIN_BY_LOGIN = "select id, nome, login, senha from administrador where login = ? and senha = ?";
 	
 	protected Connection getConnection() {
 		Connection connection = null;
@@ -54,13 +55,14 @@ public class LoginDao {
 	            
 	            if(status) {
 	            	Instrutores instrutores;
+	            	int id = rs.getInt("id");
 	            	String nome = rs.getString("nome");
 					String email = rs.getString("email");
 					Integer valor_hora = rs.getInt("valor_hora");
 					String login = rs.getString("login");
 					String senha = rs.getString("senha");
 					String experiencia = rs.getString("experiencia");
-					instrutores = new Instrutores(nome, email, valor_hora, login, senha, experiencia);
+					instrutores = new Instrutores(id, nome, email, valor_hora, login, senha, experiencia);
 	            	return Arrays.asList(status, "instrutor", instrutores);
 	            }
 	            
@@ -82,6 +84,7 @@ public class LoginDao {
 	            
 	            if(status) {
 	            	Aluno aluno;
+	            	int id = rs2.getInt("id");
 	            	String cpf = rs2.getString("cpf");
 					String nome = rs2.getString("nome");
 					String email = rs2.getString("email");
@@ -94,8 +97,34 @@ public class LoginDao {
 					String cep = rs2.getString("cep");
 					String comentario = rs2.getString("comentario");
 					Boolean aprovado = rs2.getBoolean("aprovado");
-					aluno = new Aluno(cpf, nome, email, celular, login, senha, endereco, cidade, bairro, cep, comentario, aprovado);
+					aluno = new Aluno(id, cpf, nome, email, celular, login, senha, endereco, cidade, bairro, cep, comentario, aprovado);
 	            	return Arrays.asList(status, "aluno", aluno);
+	            }
+	            
+	            
+    		}
+		catch (SQLException e) {
+			printSQLException(e);
+		}
+		try (Connection connection3 = getConnection();
+				PreparedStatement preparedStatement3= connection3.prepareStatement(SELECT_ADMIN_BY_LOGIN)) {
+				// Step 2:Create a statement using connection object
+	         
+	            preparedStatement3.setString(1, username);
+	            preparedStatement3.setString(2, password);
+	
+	            System.out.println(preparedStatement3);
+	            ResultSet rs3 = preparedStatement3.executeQuery();
+	            status = rs3.next();
+	            
+	            if(status) {
+	            	Administrador administrador;
+	            	int id = rs3.getInt("id");
+					String nome = rs3.getString("nome");
+					String login = rs3.getString("login");
+					String senha = rs3.getString("senha");
+					administrador = new Administrador(id, nome, login, senha);
+	            	return Arrays.asList(status, "administrador", administrador);
 	            }
 	            
 	            
