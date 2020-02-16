@@ -22,7 +22,7 @@
     <body>        
         <header>
         	<a href="<%=request.getContextPath()%>/">
-        		<img src="imagens/marca.png" alt="Lero Lero"/> 
+        		<img src="http://conectaai.com/imgsdevweb/leroleromarca.png" alt="Marca LeroLero">
             </a>
             <nav class="navbarLeroLero">
                 <div id="menuMobile" style="display: none;">

@@ -4,7 +4,6 @@
             <div class="container">
                 <h1>Estude onde e <br>quando você quiser</h1>
                 <p>Cursinho que se adapta a sua rotina e professores que<br> te fazem entender de verdade</p>
-                <a href="registro.html">estou interessado!</a>
             </div>
         </section>
         
@@ -27,6 +26,7 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div class="card">
+                            <img class="card-img-top" src="https://conectaai.com/imgsdevweb/admin-prof.jpg"Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title">Instrutor de Administração</h5>
                                 <div class="page-wrap">
@@ -53,6 +53,7 @@
                     </div>
                     <div class="col-md-3">
                         <div class="card">
+                            <img class="card-img-top" src="https://conectaai.com/imgsdevweb/direito-prof.jpg" alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title">Instrutora de Direito</h5>
                                 <div class="page-wrap">
@@ -79,6 +80,7 @@
                     </div>
                     <div class="col-md-3">
                         <div class="card">
+                            <img class="card-img-top" src="https://conectaai.com/imgsdevweb/biologia-prof.jpg" alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title">Instrutor de Biologia</h5>
                                 <div class="page-wrap">
@@ -105,6 +107,7 @@
                     </div>
                     <div class="col-md-3">
                         <div class="card">
+                            <img class="card-img-top" src="https://conectaai.com/imgsdevweb/letras-prof.jpg" alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title">Instrutor de Letras</h5>
                                 <div class="page-wrap">
@@ -135,10 +138,11 @@
 
         <section id="section2">
             <div class="container">
-                <h2>Nossos Cursos</h2>
+                <h2>NOSSOS CURSOS</h2>
                 <div class="row">
                     <div class="col-md-4">
                         <div class="card">
+                            <img class="card-img-top" src="https://conectaai.com/imgsdevweb/administracao.jpg" alt="Administracao">
                             <div class="card-body">
                                 <h3>Curso de Administração</h3>
                                 <p class="card-text">O curso incentiva o papel do administrador diante dos modelos de negócios.</p>
@@ -154,6 +158,7 @@
                     </div>
                     <div class="col-md-4">
                         <div class="card">
+                            <img class="card-img-top" src="https://conectaai.com/imgsdevweb/biologia.jpg" alt="Administracao">
                             <div class="card-body">
                                 <h3>Curso de Biologia</h3>
                                 <p class="card-text">A formação abrange grandes áreas de atuação, meio ambiente e saúde.</p>
@@ -169,6 +174,7 @@
                     </div>
                     <div class="col-md-4">
                         <div class="card">
+                            <img class="card-img-top" src="https://conectaai.com/imgsdevweb/direito.jpg" alt="Administracao">
                             <div class="card-body">
                                 <h3>Curso de Direito</h3>
                                 <p class="card-text">Habilidades que vão facilitar o acesso a carreiras, como a de Árbitro.</p>

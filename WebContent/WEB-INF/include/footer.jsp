@@ -4,15 +4,15 @@
                     <div class="col-md-6">
                         <h3>Fale com a gente</h3>
                         <a href="mailto:danielmaciel.siuff@gmail.com">danielmaciel.siuff@gmail.com</a>
-                        <p><img src="assets/imagens/whatsapp.png" alt="Whatsapp"> +55 21 96897-5335</p>
+                        <p><img src="https://conectaai.com/imgsdevweb/whatsapp.png" alt="Whatsapp"> +55 21 96897-5335</p>
                         <a href="https://www.instagram.com/?hl=pt-br">
                             <div class="instagramTalk">
-                                <img src="assets/imagens/instagram.png" alt="Instagram"> Confira nosso instagram!
+                                <img src="https://conectaai.com/imgsdevweb/instagram.png" alt="Instagram"> Confira nosso instagram!
                             </div>
                         </a>
                     </div>
                     <div class="col-md-6">
-                        <img src="assets/imagens/leroleromarca.png" alt="Marca Lero Lero">
+                        <img src="https://conectaai.com/imgsdevweb/leroleromarca.png" alt="Marca Lero Lero">
                         <h3>Nos faça uma visita</h3>
                         <p>R. Passo da Pátria, 152-470, <br>São Domingos, Niterói - RJ, 24210-240</p>
                     </div>

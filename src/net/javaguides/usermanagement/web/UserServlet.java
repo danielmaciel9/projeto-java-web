@@ -1,7 +1,6 @@
 package net.javaguides.usermanagement.web;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -13,7 +12,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import net.javaguides.usermanagement.dao.AdministradorDAO;
 import net.javaguides.usermanagement.model.Administrador;
@@ -181,28 +179,6 @@ public class UserServlet extends HttpServlet {
 			throw new ServletException(ex);
 		}
 	}
-	
-	protected void Login(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-        RequestDispatcher navegacao = request.getRequestDispatcher("link.html");
-        navegacao.include(request, response);
-
-        String name = request.getParameter("login");
-        String password = request.getParameter("senha");
-
-        if (password.equals("123")) {
-            out.print("Olá , " + name);
-            HttpSession session = request.getSession();
-            session.setAttribute("login", name);
-        } else {
-            out.print("Login ou senha incorreto");
-            request.getRequestDispatcher("login.html").include(request, response);
-        }
-        out.close();
-    }
 
 	/****************** PARTE DO SERVLET - ADMINISTRADOR ******************/
 	
