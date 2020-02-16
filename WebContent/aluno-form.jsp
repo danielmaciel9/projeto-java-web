@@ -90,12 +90,20 @@
 						value="<c:out value='${aluno.comentario}' />" class="form-control"
 						name="comentario" required="required">
 				</fieldset>
-
-				<fieldset class="form-group">
+				
+				<c:if test="${tipo_acesso != 'administrador'}">
 					<input type="hidden"
-						value="<c:out value='${aluno.aprovado}' />" class="form-control"
-						name="aprovado">
-				</fieldset>
+							value="<c:out value='${aluno.aprovado}' />" class="form-control"
+							name="aprovado">
+				</c:if>
+				<c:if test="${tipo_acesso == 'administrador'}">
+					<fieldset class="form-group">
+						<label>Aprovado? ( true ou false ?)</label>
+						<input type="text"
+							value="<c:out value='${aluno.aprovado}' />" class="form-control"
+							name="aprovado">
+					</fieldset>
+				</c:if>
 
 				<button type="submit" class="btn btn-success">Salvar</button>
 				</form>
