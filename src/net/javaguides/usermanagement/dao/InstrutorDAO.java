@@ -27,7 +27,7 @@ public class InstrutorDAO {
 	private static final String DELETE_INSTRUTORES_SQL = "delete from instrutores where id = ?;";
 	private static final String UPDATE_INSTRUTORES_SQL = "update instrutores set nome = ?, email = ?, valor_hora = ?, login = ?, senha = ?, experiencia = ? where id = ?;";
 
-	private static final String SELECT_INSTRUTORES_EXTRATO_CURSO = "select instrutores.nome, cursos.nome, turmas.id, cursos.carga_horaria, cursos.preco\n" + 
+	private static final String SELECT_INSTRUTORES_EXTRATO_CURSO = "select instrutores.nome, instrutores.id, cursos.nome, cursos.id, turmas.id, cursos.carga_horaria, cursos.preco\n" + 
 			"	from instrutores\n" + 
 			"	inner join turmas on turmas.instrutores_id = instrutores.id\n" + 
 			"	inner join cursos on turmas.cursos_id = cursos.id\n" + 
@@ -143,13 +143,13 @@ public class InstrutorDAO {
 
 			// Step 4: Process the ResultSet object.
 			while (rs.next()) {
-				int turma_id = rs.getInt("turma.id");
-				int curso_id = rs.getInt("curso.id");
-				String curso_nome = rs.getString("curso.nome");
-				int curso_carga_horaria = rs.getInt("curso.carga_horaria");
+				int turma_id = rs.getInt("turmas.id");
+				int curso_id = rs.getInt("cursos.id");
+				String curso_nome = rs.getString("cursos.nome");
+				int curso_carga_horaria = rs.getInt("cursos.carga_horaria");
 				String instrutores_nome = rs.getString("instrutores.nome");
 				int instrutores_id = rs.getInt("instrutores.id");
-				Double curso_preco = rs.getDouble("curso.preco");
+				Double curso_preco = rs.getDouble("cursos.preco");
 				
 				turmas.add(new Turma(turma_id, new Curso(curso_id, curso_nome, curso_carga_horaria, curso_preco), new Instrutores(instrutores_id, instrutores_nome)));
 			}

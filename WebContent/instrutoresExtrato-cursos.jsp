@@ -20,13 +20,13 @@
 				</thead>
 				<tbody>
 					<!--   for (Todo todo: todos) {  -->
-					<c:forEach var="user" items="${listTurmas}">
+					<c:forEach var="turma" items="${listTurmas}">
 						<tr>
-							<td><c:out value="${user.nome}" /></td>
-							<td><c:out value="${user.getMatricula().getTurma().getCurso().nome}" /></td>
-							<td><c:out value="${user.getMatricula().getTurma().getCurso().carga_horaria}" /></td>
-							<td><c:out value="${user.getMatricula().getTurma().getCurso().preco}" /></td>
-							<th>MULTIPLICA CARGA X PRECO</th>
+							<td><c:out value="${turma.getInstrutores().nome}" /></td>
+							<td><c:out value="${turma.getCurso().nome}" /></td>
+							<td><c:out value="${turma.getCurso().carga_horaria}" /></td>
+							<td><c:out value="${turma.getCurso().preco}" /></td>
+							<th>${turma.getCurso().preco * turma.getCurso().carga_horaria}</th>
 						</tr>
 					</c:forEach>
 					<!-- } -->

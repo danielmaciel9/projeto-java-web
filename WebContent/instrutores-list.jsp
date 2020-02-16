@@ -23,6 +23,7 @@
 						<th>Login</th>
 						<th>Senha</th>
 						<th>Experiencia</th>
+						<th>Extrato do Instrutor</th>
 						<th>Actions</th>
 					</tr>
 				</thead>
@@ -38,6 +39,7 @@
 							<td><c:out value="${user.login}" /></td>
 							<td><c:out value="${user.senha}" /></td>
 							<td><c:out value="${user.experiencia}" /></td>
+							<td><a href="listInstrutoresValoresCursos?id=<c:out value='${user.id}' />">Visualizar Extrato Geral</a></td>
 							<td><a href="editInstrutor?id=<c:out value='${user.id}' />">Edit</a>
 								&nbsp;&nbsp;&nbsp;&nbsp; <a
 								href="deleteInstrutor?id=<c:out value='${user.id}' />">Delete</a></td>
