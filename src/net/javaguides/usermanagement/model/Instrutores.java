@@ -31,6 +31,12 @@ public class Instrutores {
 		this.experiencia = experiencia;
 	}
 	
+	public Instrutores(int id, String nome) {
+		super();
+		this.id = id;
+		this.nome = nome;
+	}
+
 	public int getId() {
 		return id;
 	}

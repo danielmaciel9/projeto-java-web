@@ -34,6 +34,14 @@ public class Curso {
 		this.nome = nome;
 	}
 	
+	public Curso(int id, String nome, int carga_horaria, double preco) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.carga_horaria = carga_horaria;
+		this.preco = preco;
+	}
+	
 	public int getId() {
 		return id;
 	}

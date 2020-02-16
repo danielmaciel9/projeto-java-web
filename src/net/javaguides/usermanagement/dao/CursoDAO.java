@@ -139,13 +139,15 @@ public class CursoDAO {
 
 			// Step 4: Process the ResultSet object.
 			while (rs.next()) {
-				String alunos_nome = rs.getString("alunos.nome");
 				int alunos_id = rs.getInt("alunos.id");
+				String alunos_nome = rs.getString("alunos.nome");
+				int matriculas_id = rs.getInt("matriculas.id");
+				Double matriculas_nota = rs.getDouble("matriculas.nota");
 				int cursos_id = rs.getInt("cursos.id");
 				String cursos_nome = rs.getString("cursos.nome");
-				int matriculas_id = rs.getInt("matriculas.id");
+				
 				int turmas_id = rs.getInt("turmas.id");
-				Double matriculas_nota = rs.getDouble("matriculas.nota");
+				
 				alunos.add(new Aluno(alunos_id, alunos_nome, new Matricula(matriculas_id, matriculas_nota, new Turma(turmas_id, new Curso(cursos_id, cursos_nome)))));
 			}
 		} catch (SQLException e) {

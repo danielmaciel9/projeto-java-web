@@ -8,7 +8,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.javaguides.usermanagement.model.Aluno;
+import net.javaguides.usermanagement.model.Curso;
 import net.javaguides.usermanagement.model.Instrutores;
+import net.javaguides.usermanagement.model.Matricula;
+import net.javaguides.usermanagement.model.Turma;
 
 public class InstrutorDAO {
 	private String jdbcURL = "jdbc:mysql://localhost:3306/escola?useSSL=false";
@@ -23,6 +27,12 @@ public class InstrutorDAO {
 	private static final String DELETE_INSTRUTORES_SQL = "delete from instrutores where id = ?;";
 	private static final String UPDATE_INSTRUTORES_SQL = "update instrutores set nome = ?, email = ?, valor_hora = ?, login = ?, senha = ?, experiencia = ? where id = ?;";
 
+	private static final String SELECT_INSTRUTORES_EXTRATO_CURSO = "select instrutores.nome, cursos.nome, turmas.id, cursos.carga_horaria, cursos.preco\n" + 
+			"	from instrutores\n" + 
+			"	inner join turmas on turmas.instrutores_id = instrutores.id\n" + 
+			"	inner join cursos on turmas.cursos_id = cursos.id\n" + 
+			"	where instrutores.id = ?;";
+	
 	public InstrutorDAO() {
 	}
 
@@ -116,6 +126,40 @@ public class InstrutorDAO {
 		return instrutores;
 	}
 
+	
+	public List<Turma> selectInstrutoresFromCursoValor(Turma turma) {
+
+		// using try-with-resources to avoid closing resources (boiler plate code)
+		List<Turma> turmas = new ArrayList<>();
+		// Step 1: Establishing a Connection
+		try (Connection connection = getConnection();
+
+				// Step 2:Create a statement using connection object
+			PreparedStatement preparedStatement = connection.prepareStatement(SELECT_INSTRUTORES_EXTRATO_CURSO);) {
+			System.out.println(preparedStatement);
+			// Step 3: Execute the query or update query
+			preparedStatement.setInt(1, turma.getId());
+			ResultSet rs = preparedStatement.executeQuery();
+
+			// Step 4: Process the ResultSet object.
+			while (rs.next()) {
+				int turma_id = rs.getInt("turma.id");
+				int curso_id = rs.getInt("curso.id");
+				String curso_nome = rs.getString("curso.nome");
+				int curso_carga_horaria = rs.getInt("curso.carga_horaria");
+				String instrutores_nome = rs.getString("instrutores.nome");
+				int instrutores_id = rs.getInt("instrutores.id");
+				Double curso_preco = rs.getDouble("curso.preco");
+				
+				turmas.add(new Turma(turma_id, new Curso(curso_id, curso_nome, curso_carga_horaria, curso_preco), new Instrutores(instrutores_id, instrutores_nome)));
+			}
+		} catch (SQLException e) {
+			printSQLException(e);
+		}
+		return turmas;
+	}
+	
+	
 	public boolean deleteInstrutores(int id) throws SQLException {
 		boolean rowDeleted;
 		try (Connection connection = getConnection();
