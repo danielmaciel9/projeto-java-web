@@ -11,7 +11,8 @@
 	<section id="thankSection">
            <div class="container">
                 <i class="far fa-smile-wink"></i>
-                <h1>Seja Bem-Vindo <c:out value="${username}" />!</h1>
+                <h1>Seja Bem-Vindo <c:out value="${user.getNome()}" />!</h1>
+                <h2>Tipo de acesso: <c:out value="${tipo_acesso}" /></h2>
                 <p>Seu login foi efetuado com sucesso.</p>
            </div>
         </section>

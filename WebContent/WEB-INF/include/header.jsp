@@ -30,10 +30,14 @@
                 </div>
                 <ul class="menuDesktop">
                     <div style="display:none" class="closeMobMenu"><i class="fas fa-times"></i></div>
-                    <li>
-                        <a href="<%=request.getContextPath()%>/listAdmin"
-						class="nav-link">Administradores</a>
-                    </li>
+                    <c:out value="" />
+                    
+                    <c:if test="${tipo_acesso == 'aluno'}">
+                    	<li>
+	                        <a href="<%=request.getContextPath()%>/listAdmin"
+							class="nav-link">Administradores</a>
+	                    </li>
+                    </c:if>
                     <li>
                         <a href="<%=request.getContextPath()%>/listInstrutores"
 						class="nav-link">Instrutores</a>

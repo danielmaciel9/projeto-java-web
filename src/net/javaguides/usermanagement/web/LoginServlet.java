@@ -1,7 +1,7 @@
 package net.javaguides.usermanagement.web;
 
 import java.io.IOException;
-
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,14 +27,13 @@ public class LoginServlet extends HttpServlet {
 
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        LoginBean loginBean = new LoginBean();
-        loginBean.setUsername(username);
-        loginBean.setPassword(password);
 
         try {
-            if (loginDao.validate(loginBean)) {
+        	List<Object> lista = loginDao.validate(username, password);
+            if (lista.size()>0) {
                 HttpSession session = request.getSession();
-                session.setAttribute("username",username);
+                session.setAttribute("user",lista.get(2));
+                session.setAttribute("tipo_acesso",lista.get(1));
                 response.sendRedirect("loginsuccess.jsp");
             } else {
                 HttpSession session = request.getSession();
